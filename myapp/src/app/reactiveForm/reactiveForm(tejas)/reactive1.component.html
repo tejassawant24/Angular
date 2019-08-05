@@ -1,0 +1,308 @@
+<div class="container" style="background-color:honeydew">
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <form
+        [formGroup]="userForm"
+        class="form-horizontal"
+        role="form"
+        (ngSubmit)="Save(userForm)"
+      >
+        <div class="form-group">
+          <legend>Form title</legend>
+        </div>
+
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label">First Name</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              placeholder="enter your Last Name"
+              formControlName="firstName"
+              class="form-control"
+              [class.is-invalid]="!userForm.get('firstName').valid && submitted"
+              [class.is-valid]="userForm.get('firstName').valid"
+            />
+            <div class="valid-tooltip" *ngIf="userForm.get('firstName').valid">
+              Looks good!
+            </div>
+            <div *ngIf="!userForm.get('firstName').valid && submitted">
+              <div
+                class="alert alert-danger"
+                *ngIf="userForm.get('firstName').hasError('required')"
+              >
+                *first Name is required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('firstName').hasError('minLength')"
+              >
+                *Minimum 5 characters are required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="!userForm.get('firstName').valid"
+              >
+                *Please choose a valid Last Name*
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label">Last Name</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              placeholder="enter your Last Name"
+              formControlName="lastName"
+              class="form-control"
+              [class.is-invalid]="!userForm.get('lastName').valid && submitted"
+              [class.is-valid]="userForm.get('lastName').valid"
+            />
+            <div class="valid-tooltip" *ngIf="userForm.get('lastName').valid">
+              Looks good!
+            </div>
+            <div *ngIf="!userForm.get('lastName').valid && submitted">
+              <div
+                class="alert alert-danger"
+                *ngIf="userForm.get('lastName').hasError('required')"
+              >
+                *Last Name is required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('lastName').hasError('minLength')"
+              >
+                *Minimum 5 characters are required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="!userForm.get('lastName').valid"
+              >
+                *Please choose a valid Last Name*
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label">email</label>
+          <div class="col-sm-10">
+            <input
+              type="email"
+              placeholder="enter your email"
+              class="form-control"
+              formControlName="email"
+              [class.is-invalid]="!userForm.get('email').valid && submitted"
+              [class.is-valid]="userForm.get('email').valid"
+            />
+            <div class="valid-tooltip" *ngIf="userForm.get('email').valid">
+              Looks good!
+            </div>
+            <div *ngIf="!userForm.get('email').valid && submitted">
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('email').hasError('required')"
+              >
+                *Minimum characters are required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('email').hasError('minLength')"
+              >
+                *Minimum 10 characters are required*
+              </div>
+              <div class="invalid-tooltip" *ngIf="!userForm.get('email').valid">
+                *Please choose a valid email*
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input
+              type="password"
+              placeholder="enter your password"
+              class="form-control"
+              formControlName="password"
+              [class.is-invalid]="!userForm.get('password').valid && submitted"
+              [class.is-valid]="userForm.get('password').valid"
+            />
+            <div class="valid-tooltip" *ngIf="userForm.get('password').valid">
+              Looks good!
+            </div>
+            <div *ngIf="!userForm.get('password').valid && submitted">
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('password').hasError('required')"
+              >
+                *Password is required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('password').hasError('minLength')"
+              >
+                *Minimum 5 characters are required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="!userForm.get('password').valid"
+              >
+                *Please choose a valid Password*
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label"> DOB</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              placeholder="enter your First Name"
+              formControlName="dob"
+              class="form-control"
+              [class.is-invalid]="!userForm.get('dob').valid && submitted"
+              [class.is-valid]="userForm.get('dob').valid"
+            />
+            <div class="valid-tooltip" *ngIf="userForm.get('dob').valid">
+              Looks good!
+            </div>
+            <div *ngIf="!userForm.get('dob').valid && submitted">
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('dob').hasError('required')"
+              >
+                *DOB is required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('dob').hasError('maxLength')"
+              >
+                *Maximum 10 characters are required*
+              </div>
+              <div class="invalid-tooltip" *ngIf="!userForm.get('dob').valid">
+                *Please choose a valid First Name*
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label"> Contact No.</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              placeholder="enter your First Name"
+              formControlName="contactNo"
+              class="form-control"
+              [class.is-invalid]="!userForm.get('contactNo').valid && submitted"
+              [class.is-valid]="userForm.get('contactNo').valid"
+            />
+            <div class="valid-tooltip" *ngIf="userForm.get('contactNo').valid">
+              Looks good!
+            </div>
+            <div *ngIf="!userForm.get('contactNo').valid && submitted">
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('contactNo').hasError('required')"
+              >
+                *ContactNo is required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('contactNo').hasError('maxLength')"
+              >
+                *Maximum 10 characters are required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="!userForm.get('contactNo').valid"
+              >
+                *Please choose a valid Contact No*
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label">Address</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              placeholder="enter your First Name"
+              formControlName="address"
+              class="form-control"
+              [class.is-invalid]="!userForm.get('address').valid && submitted"
+              [class.is-valid]="userForm.get('address').valid"
+            />
+            <div class="valid-tooltip" *ngIf="userForm.get('address').valid">
+              Looks good!
+            </div>
+            <div *ngIf="!userForm.get('address').valid && submitted">
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('address').hasError('required')"
+              >
+                *address is required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('address').hasError('minLength')"
+              >
+                *Minimum 5 characters are required*
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label">Country</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              placeholder="enter your password"
+              class="form-control"
+              formControlName="country"
+              [class.is-invalid]="!userForm.get('country').valid && submitted"
+              [class.is-valid]="userForm.get('country').valid"
+            />
+            <div class="valid-tooltip" *ngIf="userForm.get('country').valid">
+              Looks good!
+            </div>
+            <div *ngIf="!userForm.get('country').valid && submitted">
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('country').hasError('required')"
+              >
+                *Country is required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="userForm.get('country').hasError('minLength')"
+              >
+                *Minimum 2 characters are required*
+              </div>
+              <div
+                class="invalid-tooltip"
+                *ngIf="!userForm.get('country').valid"
+              >
+                *Please choose a valid Country*
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-10 col-sm-offset-2">
+            <button type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
