@@ -1,0 +1,12 @@
+div.card-header {
+  background-color: black;
+  color: white;
+}
+div.card {
+  width: 60%;
+  height: 60%;
+  margin: auto;
+}
+div.image {
+  margin-left: 150px;
+}

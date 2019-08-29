@@ -1,0 +1,131 @@
+<p>product-list1 works!</p>
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+  integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+  crossorigin="anonymous"
+/>
+<div class="card">
+  <div class="card-header">
+    Product List <span *ngIf="rating"> : The rating is {{ rating }}</span>
+  </div>
+  <div class="card-body">
+    <div class="container">
+      <br />
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+          <form class="card card-sm">
+            <div class="card-body row no-gutters align-items-center">
+              <div class="col-auto">
+                <i
+                  class="fas fa-search h4 text-body"
+                  style="margin-right: 10px"
+                ></i>
+              </div>
+              <!--end of col-->
+              <div class="col">
+                <input
+                  class="form-control form-control-lg form-control-borderless"
+                  type="search"
+                  id="search"
+                  name="searchText"
+                  placeholder="Search topics or keywords"
+                  [(ngModel)]="searchText"
+                />
+              </div>
+              <!--end of col-->
+              <div class="col-auto">
+                <button class="btn btn-lg btn-success" type="submit">
+                  Search
+                </button>
+              </div>
+              <!--end of col-->
+            </div>
+          </form>
+        </div>
+        <!--end of col-->
+      </div>
+    </div>
+    <label class="card-text">Filter by : {{ searchText }}</label>
+    <div class="row">
+      <table class="table" style="width:100%">
+        <thead>
+          <tr>
+            <th>
+              <button class="btn-primary btn" (click)="btnClicked()">
+                {{ btnText }} image
+              </button>
+            </th>
+            <th>
+              Product
+            </th>
+            <th>
+              Code
+            </th>
+            <th>
+              Available
+            </th>
+            <th>
+              Price
+            </th>
+            <th>
+              Rating
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let d of allProds | search: searchText">
+            <td>
+              <img
+                class="img fluid"
+                [ngStyle]="{ display: isActive ? 'block' : 'none' }"
+                src="{{ d.productImage }}"
+              />
+            </td>
+            <td>
+              <a routerLink="/productList/{{ d.productId }}">{{ d.product }}</a>
+            </td>
+            <td>
+              {{ d.code }}
+            </td>
+            <td>
+              {{ d.available }}
+            </td>
+            <td>
+              {{ d.price }}
+            </td>
+            <td (click)="rating = d.rating">
+              <ul class="rating">
+                <li class="fa fa-star"></li>
+                <li class="fa fa-star"></li>
+                <li class="fa fa-star"></li>
+                <li class="fa fa-star"></li>
+                <li class="fa fa-star"></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <button
+      type="button"
+      class="btn btn-outline-secondary btn-lg"
+      data-toggle="button"
+      aria-pressed="false"
+      autocomplete="off"
+      (click)="backbutton()"
+    >
+      Back
+    </button>
+  </div>
+</div>

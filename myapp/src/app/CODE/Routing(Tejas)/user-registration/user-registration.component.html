@@ -1,0 +1,192 @@
+<p>user-registration works!</p>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 col-sm-8 col-xs-8">
+      <form
+        [formGroup]="userReg"
+        class="form-horizontal"
+        role="form"
+        (ngSubmit)="Save(userReg.value)"
+      >
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter First Name"
+            formControlName="FirstName"
+            [class.is-invalid]="!userReg.get('FirstName').valid && submitted"
+            [class.is-valid]="userReg.get('FirstName').valid"
+          />
+
+          <div class="valid-feedback" *ngIf="userReg.get('FirstName').valid">
+            <div>
+              Looks Good!!
+            </div>
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="!userReg.get('FirstName').valid && submitted"
+          >
+            <div *ngIf="userReg.get('FirstName').hasError('required')">
+              *Please choose First Name!*
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Last Name"
+            formControlName="LastName"
+            [class.is-invalid]="!userReg.get('LastName').valid && submitted"
+            [class.is-valid]="userReg.get('LastName').valid"
+          />
+
+          <div class="valid-feedback" *ngIf="userReg.get('LastName').valid">
+            <div>
+              Looks Good!!
+            </div>
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="!userReg.get('LastName').valid && submitted"
+          >
+            <div *ngIf="userReg.get('LastName').hasError('required')">
+              * Please choose Last Name! *
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label">Mobile No.</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Mobile No."
+            formControlName="MobileNo"
+            [class.is-invalid]="!userReg.get('MobileNo').valid && submitted"
+            [class.is-valid]="userReg.get('MobileNo').valid"
+          />
+
+          <div class="valid-feedback" *ngIf="userReg.get('MobileNo').valid">
+            <div>
+              Looks Good!!
+            </div>
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="!userReg.get('MobileNo').valid && submitted"
+          >
+            <div *ngIf="userReg.get('MobileNo').hasError('required')">
+              * Please choose Mobile No.! *
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input" class="col-sm-2 control-label">Email Id</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Email Id"
+            formControlName="EmailId"
+            [class.is-invalid]="!userReg.get('EmailId').valid && submitted"
+            [class.is-valid]="userReg.get('EmailId').valid"
+          />
+
+          <div class="valid-feedback" *ngIf="userReg.get('EmailId').valid">
+            <div>
+              Looks Good!!
+            </div>
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="!userReg.get('EmailId').valid && submitted"
+          >
+            <div *ngIf="userReg.get('EmailId').hasError('required')">
+              * Please choose Email Id! *
+            </div>
+          </div>
+        </div>
+
+        <div formGroupName="UserLogin">
+          <label class="col-sm-2 control-label">UserLogin</label>
+          <hr />
+          <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">UserName</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter UserName"
+              formControlName="UserName"
+              [class.is-invalid]="
+                !userReg.get('UserLogin.UserName').valid && submitted
+              "
+              [class.is-valid]="userReg.get('UserLogin.UserName').valid"
+            />
+
+            <div
+              class="valid-feedback"
+              *ngIf="userReg.get('UserLogin.UserName').valid"
+            >
+              <div>
+                Looks Good!!
+              </div>
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="!userReg.get('UserLogin.UserName').valid && submitted"
+            >
+              <div
+                *ngIf="userReg.get('UserLogin.UserName').hasError('required')"
+              >
+                * Please choose UserName! *
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Enter Password"
+              formControlName="Password"
+              [class.is-invalid]="
+                !userReg.get('UserLogin.Password').valid && submitted
+              "
+              [class.is-valid]="userReg.get('UserLogin.Password').valid"
+            />
+
+            <div
+              class="valid-feedback"
+              *ngIf="userReg.get('UserLogin.Password').valid"
+            >
+              <div>
+                Looks Good!!
+              </div>
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="!userReg.get('UserLogin.Password').valid && submitted"
+            >
+              <div
+                *ngIf="userReg.get('UserLogin.Password').hasError('required')"
+              >
+                * Please choose Password! *
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

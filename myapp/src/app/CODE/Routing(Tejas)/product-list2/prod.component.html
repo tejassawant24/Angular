@@ -1,0 +1,80 @@
+<div class="card" *ngFor="let d of prodsData">
+  <div class="card-header">
+    Product List Details:
+    <span style="font-weight: bolder">
+      {{ d.productId }} - {{ d.product }}</span
+    >
+  </div>
+  <div class="card-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row">
+            <span>
+              Product Id:<span style="font-weight: bolder">
+                {{ d.productId }}</span
+              ></span
+            >
+          </div>
+          <br />
+
+          <div class="row">
+            <span
+              >Product Name :
+              <span style="font-weight: bolder">{{ d.product }} </span></span
+            >
+          </div>
+          <br />
+          <div class="row">
+            <span
+              >Code : <span style="font-weight: bolder"> {{ d.code }} </span>
+            </span>
+          </div>
+          <br />
+          <div class="row">
+            <span
+              >Product Availability :
+              <span style="font-weight: bolder">
+                {{ d.available }}
+              </span></span
+            >
+          </div>
+          <br />
+          <div class="row">
+            <span
+              >Product Price :
+              <span style="font-weight: bolder"> {{ d.price }}</span></span
+            >
+          </div>
+          <br />
+          <div class="row">
+            <span
+              >Product Rating :
+              <span style="font-weight: bolder"> {{ d.rating }}</span></span
+            >
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <span
+              >Product Image :
+              <span> <img class="img-fluid" src="{{ d.productImage }}"/></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <button
+      type="button"
+      class="btn btn-outline-secondary btn-lg"
+      data-toggle="button"
+      aria-pressed="false"
+      autocomplete="off"
+      (click)="backbutton()"
+    >
+      Back
+    </button>
+  </div>
+</div>
